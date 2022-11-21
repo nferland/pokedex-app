@@ -21,7 +21,7 @@ fun RoundPokemonImage(size: Int, imageUrl: String?) {
     Column() {
         if (imageUrl == null){
             Image(
-                painter = painterResource(id = R.drawable.ic_no_pokemon_foreground),
+                painter = painterResource(id = R.drawable.missing_no),
                 modifier = Modifier.size(size.dp).clip(CircleShape)                       // clip to the circle shape
                     .border(2.dp, Color.Gray, CircleShape),
                 contentDescription = "Account",
