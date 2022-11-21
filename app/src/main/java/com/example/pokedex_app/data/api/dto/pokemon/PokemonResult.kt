@@ -7,10 +7,10 @@ import kotlinx.parcelize.Parcelize
 data class PokemonResult(
     val name: String,
     val url: String,
-    val imgUrl: String,
-    val id: Int
+    val id: Int,
+    val imgUrl: String
 ) : Parcelable {
-    constructor(name: String, url: String) : this(name, url, getImgUrl(url), getPokemonIdFromUrl(url))
+    constructor(name: String, url: String) : this(name, url, getPokemonIdFromUrl(url), getImgUrl(url))
 
 }
 fun getPokemonIdFromUrl(url : String) : Int {
