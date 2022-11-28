@@ -1,4 +1,4 @@
-package com.example.myapplication.components
+package com.example.pokedex_app.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
