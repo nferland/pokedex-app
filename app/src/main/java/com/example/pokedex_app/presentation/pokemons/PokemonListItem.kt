@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.components.PokemonImage
+import com.example.pokedex_app.components.PokemonImage
 import com.example.myapplication.domain.models.PokemonModel
 import com.example.pokedex_app.components.PokemonTypeList
 import com.example.pokedex_app.components.getBackgroundColorByName
