@@ -6,22 +6,20 @@ import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.pokedex_app.data.api.dto.pokemon.PokemonResult
+import com.example.myapplication.domain.models.PokemonModel
 
 @Composable
-fun PokemonListComponent(pokemons: Map<String, PokemonResult>, navigateToPokemonScreen: (contact: PokemonResult) -> Unit){
-    val itemOnClick = fun (pokemon: PokemonResult){
+fun PokemonListComponent(pokemons: Map<String, PokemonModel>, navigateToPokemonScreen: (contact: PokemonModel) -> Unit){
+    val itemOnClick = fun (pokemon: PokemonModel){
         navigateToPokemonScreen(pokemon)
     }
 
-    val pokemonList = pokemons.values.toList();
+    val pokemonUnsortedList = pokemons.values.toList()
+    val pokemonList = pokemonUnsortedList.sortedBy { it.info?.pokemonId }
 
     LazyColumn() {
         itemsIndexed(pokemonList){ index, pokemon ->
             PokemonListItem(pokemon = pokemon) { itemOnClick(pokemon) }
-            if (index < pokemonList.lastIndex){
-                Divider(color = Color.LightGray, thickness = 1.dp, startIndent = 82.dp)
-            }
         }
     }
 }
