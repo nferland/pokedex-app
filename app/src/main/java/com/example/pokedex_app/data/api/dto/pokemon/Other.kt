@@ -1,7 +1,10 @@
 package com.example.pokedex_app.data.api.dto.pokemon
 
+import com.google.gson.annotations.SerializedName
+
 data class Other(
     val dream_world: DreamWorld,
     val home: Home,
-    val official-artwork: OfficialArtwork
+    @SerializedName("official-artwork")
+    val official_artwork: OfficialArtwork
 )
