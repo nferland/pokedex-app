@@ -24,7 +24,7 @@ fun PokemonInfos(pokemon: PokemonModel?) {
     ) {
         Column(modifier= Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally){
             Row(modifier = Modifier.padding(16.dp)) {
-                Text(text = "${pokemon?.info?.name?.capitalize()}",
+                Text(text = "${pokemon?.info?.name?.capitalize()} #${String.format("%03d",pokemon?.info?.pokemonId)}",
                     color = Color.White,
                     fontSize = 32.sp
                 )
