@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -18,12 +19,30 @@ fun PokemonStats(pokemon: PokemonModel?) {
         .padding(32.dp)
         .border(1.dp, Color.DarkGray)
     ) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally){
+                Text(text = "Statistics") 
+            }
+        }
         pokemon?.info?.stats?.forEach{ stat ->
             Row(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)) {
-                Column(modifier = Modifier.padding(0.dp, 0.dp, 16.dp, 0.dp)) {
-                    Text(text = "${stat.name} : ${stat.value}")
+                .padding(4.dp)) {
+                Column(modifier = Modifier
+                    .width(120.dp)
+                    .padding(0.dp, 0.dp, 16.dp, 0.dp)) {
+                    when (stat.name) {
+                        "special-attack" -> {
+                            Text(text = "Sp. Attack : ${stat.value}")
+                        }
+                        "special-defense" -> {
+                            Text(text = "Sp. Defense : ${stat.value}")
+                        }
+                        else -> {
+                            Text(text = "${stat.name.capitalize()} : ${stat.value}")
+                        }
+                    }
                 }
                 Column(modifier = Modifier
                     .width(stat.value.dp)

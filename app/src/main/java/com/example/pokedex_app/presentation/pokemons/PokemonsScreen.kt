@@ -38,6 +38,9 @@ fun PokemonsScreen(navHostController: NavHostController,
     },
          content = { padding ->
             Column(modifier = Modifier.padding(padding)) {
+                Row() {
+
+                }
                 PokemonListComponent(pokemons = pokemons, navigateToPokemonScreen)
             }
         })
