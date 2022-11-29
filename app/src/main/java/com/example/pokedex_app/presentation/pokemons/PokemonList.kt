@@ -5,11 +5,16 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.domain.models.PokemonModel
 
 @Composable
-fun PokemonListComponent(pokemons: Map<String, PokemonModel>, navigateToPokemonScreen: (contact: PokemonModel) -> Unit){
+fun PokemonListComponent(
+    pokemons: Map<String, PokemonModel>,
+    navigateToPokemonScreen: (contact: PokemonModel) -> Unit,
+    searchValue : TextFieldValue
+){
     val itemOnClick = fun (pokemon: PokemonModel){
         navigateToPokemonScreen(pokemon)
     }
@@ -19,7 +24,9 @@ fun PokemonListComponent(pokemons: Map<String, PokemonModel>, navigateToPokemonS
 
     LazyColumn() {
         itemsIndexed(pokemonList){ index, pokemon ->
-            PokemonListItem(pokemon = pokemon) { itemOnClick(pokemon) }
+            if(searchValue.text == "" || pokemon.info?.name?.contains(searchValue.text) == true) {
+                PokemonListItem(pokemon = pokemon) { itemOnClick(pokemon) }
+            }
         }
     }
 }
