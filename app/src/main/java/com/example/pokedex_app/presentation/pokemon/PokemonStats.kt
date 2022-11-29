@@ -22,7 +22,7 @@ fun PokemonStats(pokemon: PokemonModel?) {
         Row(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally){
-                Text(text = "Statistics") 
+                Text(text = "Statistics")
             }
         }
         pokemon?.info?.stats?.forEach{ stat ->
